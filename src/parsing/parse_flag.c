@@ -6,11 +6,11 @@
 /*   By: ciusca <ciusca@student.42firenze.it>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 16:19:48 by ciusca            #+#    #+#             */
-/*   Updated: 2024/07/07 02:45:07 by ciusca           ###   ########.fr       */
+/*   Updated: 2024/07/07 19:41:39 by ciusca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/make_gen.h"
+#include "../../includes/make_gen.h"
 
 t_all_flags flags_database[TOTAL_FLAGS] = {
     {"name", "Chose the program name", 1},
@@ -21,7 +21,7 @@ t_all_flags flags_database[TOTAL_FLAGS] = {
 	{"include", "Include an additionale library {path/to/library}", 6}
 };
 
-int	existing_flag(char *flag)
+static int	existing_flag(char *flag)
 {
 	int	i;
 
@@ -34,7 +34,7 @@ int	existing_flag(char *flag)
 	return (0);
 }
 
-int	check_flags(char *flag)
+static int	check_flags(char *flag)
 {
 	int		type;
 	char	**flag_value;
@@ -44,8 +44,10 @@ int	check_flags(char *flag)
 		return (error(MALLOC_FAIL));
 	type = existing_flag(flag_value[0]);
 	if (!type)
+	{
+		free_matrix(flag_value);
 		return (0);
-	printf("type = %d\n", type);
+	}
 	free_matrix(flag_value);
 	return (type);
 }
@@ -67,7 +69,7 @@ int	parse_flags(t_make *make, int argc, char **argv)
 			return (ft_free(flag), 0);
 		else if (type == 5 && argc > 2)
 			return (error(UPDATE_USAGE));
-		if (!flags_manager(make, flag, type))	// perform the actual flag given the argument and the corrisponding type
+		if (!flags_manager(make, flag, type))	// perform the actual flag, given the argument and the corrisponding type
 			return (ft_free(flag), 0);
 		ft_free(flag);
 	}

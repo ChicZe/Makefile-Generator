@@ -8,6 +8,10 @@
 		"typeinfo": "c",
 		"structs.h": "c",
 		"fcntl.h": "c",
-		"libft.h": "c"
+		"libft.h": "c",
+		"format_vars.C": "cpp",
+		"format_var.C": "cpp",
+		"format_rules.C": "cpp",
+		"forma_rules.C": "cpp"
 	}
 }

@@ -6,7 +6,7 @@
 #    By: ciusca <ciusca@student.42firenze.it>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/06 00:37:58 by ciusca            #+#    #+#              #
-#    Updated: 2024/07/07 02:28:51 by ciusca           ###   ########.fr        #
+#    Updated: 2024/07/07 19:02:43 by ciusca           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,9 +15,9 @@ NAME = makegen
 LIBFT_PATH = libft/
 LIBFT = libft/libft.a
 
-INIT_SRC = init_structs.c
+INIT_SRC = init_structs.c set_default.c
 CREATE_SRC = create_file.c
-UTILS_SRC = error.c close_program.c messages.c
+UTILS_SRC = error.c close_program.c messages.c format_rule.c
 PARSING_SRC = parse_flag.c fill_datas.c
 MAIN = main.c
 

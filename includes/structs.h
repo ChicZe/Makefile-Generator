@@ -6,7 +6,7 @@
 /*   By: ciusca <ciusca@student.42firenze.it>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 00:21:21 by ciusca            #+#    #+#             */
-/*   Updated: 2024/07/06 22:45:23 by ciusca           ###   ########.fr       */
+/*   Updated: 2024/07/07 15:20:26 by ciusca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_vars
 	char	*src;
 	char	*compilation;
 	char	*link;
+	char	*include;
 	char	*all;
 	char	*clean;
 	char	*fclean;

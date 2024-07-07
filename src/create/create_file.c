@@ -6,7 +6,7 @@
 /*   By: ciusca <ciusca@student.42firenze.it>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 01:26:31 by ciusca            #+#    #+#             */
-/*   Updated: 2024/07/07 02:23:56 by ciusca           ###   ########.fr       */
+/*   Updated: 2024/07/07 19:58:15 by ciusca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,15 @@ int	write_makefile(t_make *make)
 	ret = write(make->fd, "\n", 1);
 	ret = write(make->fd, "\n", 1);
 	//? write libft if present
+	ret = write (make->fd, "LIBFT_PATH = ", 13);
 	ret = write(make->fd, vars->libft, ft_strlen(vars->libft));
+	ret = write(make->fd, "\n", 1);
 	ret = write (make->fd, "LIBFT = $(addprefix, LIBFT_PATH, libft.a)", 41);
 	ret = write(make->fd, "\n", 1);
 	ret = write(make->fd, "\n", 1);
 	//? write sources files
+	ret = write (make->fd, "SRC =", 5);
+	printf("vars->src = %s\n", vars->src);
 	ret = write(make->fd, vars->src, ft_strlen(vars->src));
 	ret = write(make->fd, "\n", 1);
 	ret = write(make->fd, "\n", 1);

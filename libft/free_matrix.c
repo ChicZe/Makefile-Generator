@@ -6,7 +6,7 @@
 /*   By: ciusca <ciusca@student.42firenze.it>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 22:31:14 by ciusca            #+#    #+#             */
-/*   Updated: 2024/07/06 22:34:12 by ciusca           ###   ########.fr       */
+/*   Updated: 2024/07/07 15:33:46 by ciusca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ void	free_matrix(char **mat)
 	i = -1;
 	while (mat[++i])
 		free(mat[i]);
-	free(mat[i]);
+	free(mat);
 	mat = NULL;
 }

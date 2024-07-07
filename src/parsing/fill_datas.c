@@ -6,14 +6,57 @@
 /*   By: ciusca <ciusca@student.42firenze.it>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 22:46:08 by ciusca            #+#    #+#             */
-/*   Updated: 2024/07/07 02:49:42 by ciusca           ###   ########.fr       */
+/*   Updated: 2024/07/07 18:31:26 by ciusca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/make_gen.h"
+#include "../../includes/make_gen.h"
+
+int	update(t_make *make)
+{
+	(void)make;
+	//TODO: add update flag to update new '.c' files
+	return (0);
+}
+
+int	include_flag(t_vars *vars, char *path)
+{
+	int	fd;
+	
+	if (!path)
+		return (error("Insert a valid path"));
+	fd = open(path, __O_DIRECTORY);
+	if (fd == -1)
+		return (error(INCLUDE_PATH_ERROR));
+	close(fd);
+	ft_free(vars->include);
+	vars->include = ft_strdup(path);
+	printf("include path = '%s'\n", vars->include);
+	return (1);
+}
+
+int	link_flag(t_vars *vars, char *link)
+{
+	if (!link)
+		return (error(LINK_USAGE));
+	ft_free(vars->link);
+	vars->link = ft_strdup(link);
+	return (1);
+}
+
+int	compile_flag(t_vars *vars, char *compilation)
+{
+	if (!compilation)
+		return (error(COMPILE_USAGE));
+	ft_free(vars->compilation);
+	vars->compilation = ft_strdup(compilation);
+	return (1);
+}
 
 int	libft_flag(t_vars *vars, char *libft)
 {
+	if (!libft)
+		return (error(LIBFT_USAGE));
 	if (!ft_strncmp(libft, "no", 3))
 	{
 		ft_free(vars->libft);
@@ -53,13 +96,13 @@ int	flags_manager(t_make *make, char *flag, int type)
 	else if (type == 2)
 		fail = libft_flag(vars, key_value[1]);
 	else if (type == 3)
-		;//
+		fail = compile_flag(vars, key_value[1]);
 	else if (type == 4)
-		;//
+		fail = link_flag(vars, key_value[1]);
 	else if (type == 5)
-		;//
+		fail = update(make);
 	else if (type == 6)
-		return (0);
+		fail = include_flag(vars, key_value[1]);
 	free_matrix(key_value);
 	if (!fail)
 		return (0);

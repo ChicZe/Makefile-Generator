@@ -6,11 +6,11 @@
 /*   By: ciusca <ciusca@student.42firenze.it>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 18:15:12 by ciusca            #+#    #+#             */
-/*   Updated: 2024/07/06 18:15:59 by ciusca           ###   ########.fr       */
+/*   Updated: 2024/07/07 18:31:49 by ciusca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/make_gen.h"
+#include "../../includes/make_gen.h"
 
 void	welcome_msg(void)
 {

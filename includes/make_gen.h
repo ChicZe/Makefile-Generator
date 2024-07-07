@@ -14,8 +14,14 @@ extern char	**all_flag;
 /**----------------------
  *?    INITIALIZATION
  *------------------------**/
-
 int		init_all(t_make *make);
+char	*get_name(void);
+char	*get_src(void);
+
+/**======================
+ *?    		UTILS
+ *========================**/
+char	*format_src(char *src);
 
 /**----------------------
  *?    COMPOSING MAKEFILE
