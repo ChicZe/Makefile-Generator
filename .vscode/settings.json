@@ -4,6 +4,10 @@
 		"defines.h": "c",
 		"compare": "c",
 		"type_traits": "c",
-		"utility": "c"
+		"utility": "c",
+		"typeinfo": "c",
+		"structs.h": "c",
+		"fcntl.h": "c",
+		"libft.h": "c"
 	}
 }

@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   print_matrix.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ciusca <ciusca@student.42firenze.it>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/06 01:43:51 by ciusca            #+#    #+#             */
-/*   Updated: 2024/07/07 02:08:52 by ciusca           ###   ########.fr       */
+/*   Created: 2024/07/06 18:35:52 by ciusca            #+#    #+#             */
+/*   Updated: 2024/07/06 18:37:31 by ciusca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/make_gen.h"
+#include "libft.h"
+#include <stdio.h>
 
-int	error(char *error_msg)
+void	print_matrix(char **mat)
 {
-	error_status = 1;
-	ft_putstr_fd(error_msg, STDERR_FILENO);
-	return (0);
+	int	i;
+
+	i = -1;
+	while (mat[++i])
+		printf("%s\n", mat[i]);
 }

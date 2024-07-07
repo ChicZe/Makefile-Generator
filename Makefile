@@ -6,7 +6,7 @@
 #    By: ciusca <ciusca@student.42firenze.it>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/06 00:37:58 by ciusca            #+#    #+#              #
-#    Updated: 2024/07/06 01:53:26 by ciusca           ###   ########.fr        #
+#    Updated: 2024/07/07 02:28:51 by ciusca           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,14 +17,16 @@ LIBFT = libft/libft.a
 
 INIT_SRC = init_structs.c
 CREATE_SRC = create_file.c
-UTILS_SRC = error.c
+UTILS_SRC = error.c close_program.c messages.c
+PARSING_SRC = parse_flag.c fill_datas.c
 MAIN = main.c
 
+PARSING = $(addprefix parsing/, $(PARSING_SRC))
 INIT = $(addprefix init/, $(INIT_SRC))
 CREATE = $(addprefix create/, $(CREATE_SRC))
 UTILS = $(addprefix utils/, $(UTILS_SRC))
 
-FILES = $(MAIN) $(INIT) $(CREATE) $(UTILS)
+FILES = $(MAIN) $(INIT) $(CREATE) $(UTILS) $(PARSING)
 
 SRC = $(addprefix src/, $(FILES))
 
@@ -48,18 +50,24 @@ all: ${NAME}
 ${NAME}: ${OBJS}
 		make -C ${LIBFT_PATH}
 		$(COMPILE) $(OBJS) -o $(NAME) $(LIBFT)
-		rm -rf $(OBJS)
-		make -C $(LIBFT_PATH) clean
 		@echo $(YELLOW)compilation completed!$(NONE)
 
-fclean:
+valgrind: all
+		@valgrind --leak-check=full --show-leak-kinds=all ./makegen
+	
+
+clean:
+		rm -rf $(OBJS)
+		make -C $(LIBFT_PATH) clean
+
+fclean: clean
 		@rm -rf $(NAME)
 		@make -C $(LIBFT_PATH) fclean
 
 re: fclean all
 
 
-.PHONY: all fclean
+.PHONY: all clean fclean
 
 .SILENT:
 

@@ -11,16 +11,19 @@
 
 #include "../includes/make_gen.h"
 
+int	error_status;
+
 int	main(int argc, char **argv)
 {
 	t_make	make;
 
-	(void)argc;
-	(void)argv;
-	// if (parse_flags(&make) == 0)
-	//		return (0);
 	if (!init_all(&make))
-		return (1);
-	if (!create_file(&make))
-		return (1);
+		quit(&make);
+	if (!parse_flags(&make, argc, argv))
+		quit(&make);
+	//if (!create_file(&make))
+	//	quit(&make);
+	quit(&make);
+	//if (!write_makefile(&make))
+	//	return (1);
 }

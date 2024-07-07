@@ -1,0 +1,1 @@
+find . -path ./path/to/excluded_dir -prune -o -name "*.c"
