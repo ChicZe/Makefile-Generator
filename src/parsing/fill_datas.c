@@ -88,6 +88,7 @@ int	flags_manager(t_make *make, char *flag, int type)
 	char	**key_value;
 	t_vars	*vars;
 
+	fail = 0;
 	key_value = ft_split(flag, '=');
 	if (!key_value)
 		return (error(MALLOC_FAIL));

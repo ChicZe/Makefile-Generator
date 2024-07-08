@@ -39,6 +39,7 @@ char	*get_cmd_output(char *cmd)
 	char	buf[256];
 	char	*out;
 
+	out = 0;
 	bash_cmd = popen(cmd, "r");
 	if (!cmd)
 		return (error(GENERIC_ERROR), NULL);

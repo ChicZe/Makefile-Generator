@@ -17,7 +17,7 @@ int	setup_all(t_vars *vars)
 	char	*temp;
 	
 	vars->all = ft_strdup("%.o: %.c\n\t\t$(COMPILE) -c $< -o %@\
-	\n\n\t\t$(NAME): $(OBJS)\n\t\t");
+	\n\n$(NAME): $(OBJS)\n\t\t");
 	//manage_includes(0, 0);
 	temp = ft_strdup(vars->all);
 	ft_free(vars->all);

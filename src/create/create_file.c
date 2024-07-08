@@ -27,7 +27,7 @@ int	write_makefile(t_make *make)
 	ret = write (make->fd, "LIBFT_PATH = ", 13);
 	ret = write(make->fd, vars->libft, ft_strlen(vars->libft));
 	ret = write(make->fd, "\n", 1);
-	ret = write (make->fd, "LIBFT = $(addprefix, LIBFT_PATH, libft.a)", 41);
+	ret = write (make->fd, "LIBFT = $(addprefix $(LIBFT_PATH), libft.a)", 43);
 	ret = write(make->fd, "\n", 1);
 	ret = write(make->fd, "\n", 1);
 	/*ret = write(make->fd, vars->include_var, ft_strlen(vars->include_var))
