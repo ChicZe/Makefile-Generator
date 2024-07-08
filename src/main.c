@@ -19,9 +19,10 @@ int	main(int argc, char **argv)
 
 	if (!init_all(&make))
 		quit(&make);
-	//todo: set deafault values (maybe on init?);
 	if (!parse_flags(&make, argc, argv))
 		quit(&make);
+	if (!setup_basic_rules(&make))
+		return (1);
 	if (!create_file(&make))
 		quit(&make);
 	if (!write_makefile(&make))

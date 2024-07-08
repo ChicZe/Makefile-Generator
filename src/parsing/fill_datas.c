@@ -6,7 +6,7 @@
 /*   By: ciusca <ciusca@student.42firenze.it>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 22:46:08 by ciusca            #+#    #+#             */
-/*   Updated: 2024/07/07 18:31:26 by ciusca           ###   ########.fr       */
+/*   Updated: 2024/07/08 02:08:49 by ciusca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int	update(t_make *make)
 
 int	include_flag(t_vars *vars, char *path)
 {
-	int	fd;
-	
+	int		fd;
+
 	if (!path)
 		return (error("Insert a valid path"));
 	fd = open(path, __O_DIRECTORY);
@@ -30,6 +30,7 @@ int	include_flag(t_vars *vars, char *path)
 		return (error(INCLUDE_PATH_ERROR));
 	close(fd);
 	ft_free(vars->include);
+	//vars->include = tokenize_include(path);
 	vars->include = ft_strdup(path);
 	printf("include path = '%s'\n", vars->include);
 	return (1);
@@ -60,7 +61,7 @@ int	libft_flag(t_vars *vars, char *libft)
 	if (!ft_strncmp(libft, "no", 3))
 	{
 		ft_free(vars->libft);
-		vars->libft = ft_strdup("");
+		vars->libft = 0;
 	}
 	else
 	{

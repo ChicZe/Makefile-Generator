@@ -6,11 +6,50 @@
 /*   By: ciusca <ciusca@student.42firenze.it>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 18:26:24 by ciusca            #+#    #+#             */
-/*   Updated: 2024/07/07 19:57:10 by ciusca           ###   ########.fr       */
+/*   Updated: 2024/07/08 02:08:00 by ciusca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/make_gen.h"
+
+/*char	**tokenize_include(char	*path)
+{
+	char	*cmd;
+	char	*temp;
+	char	*include[2];
+	char	*name;
+
+	cmd = ft_strjoin("ls ", path);
+	temp = ft_strdup(cmd);
+	ft_free(cmd);
+	cmd = ft_strjoin(temp, " | grep *.a");
+	ft_free(temp);
+	name = get_cmd_output(cmd);
+	temp = ft_strjoin(ft_strmapi(name - 2, ft_toupper), " = "); 
+	char *var = ft_strjoin(temp, name);
+	ft_free(temp);
+	include[0] = ft_strdup(var);
+	ft_free(var);
+	return (include);
+}*/
+
+char	*get_cmd_output(char *cmd)
+{
+	FILE	*bash_cmd;
+	char	buf[256];
+	char	*out;
+
+	bash_cmd = popen(cmd, "r");
+	if (!cmd)
+		return (error(GENERIC_ERROR), NULL);
+	while (fgets(buf, sizeof(buf), bash_cmd) != 0) {
+		out = ft_strdup(buf);
+		break ;
+	}
+	ft_free(cmd);
+	pclose(bash_cmd);
+	return (out);
+}
 
 char	*align_src(char *str)
 {

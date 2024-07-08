@@ -22,6 +22,8 @@ char	*get_src(void);
  *?    		UTILS
  *========================**/
 char	*format_src(char *src);
+char	*get_cmd_output(char *cmd);
+char	*tokenize_include(char	*path);
 
 /**----------------------
  *?    COMPOSING MAKEFILE
@@ -39,6 +41,7 @@ int		error(char *err_type);
  *------------------------**/
 int	parse_flags(t_make *make, int argc, char **argv);
 int	flags_manager(t_make *make, char *flag, int type);
+int	setup_basic_rules(t_make *make);
 
 /**----------------------
  *?    	  MESSAGES
