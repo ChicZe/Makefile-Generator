@@ -6,7 +6,7 @@
 /*   By: ciusca <ciusca@student.42firenze.it>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 22:46:08 by ciusca            #+#    #+#             */
-/*   Updated: 2024/07/08 02:08:49 by ciusca           ###   ########.fr       */
+/*   Updated: 2024/07/09 12:56:20 by ciusca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,11 @@ int	link_flag(t_vars *vars, char *link)
 	if (!link)
 		return (error(LINK_USAGE));
 	ft_free(vars->link);
-	vars->link = ft_strdup(link);
+	char	*temp;
+	temp = ft_strjoin(vars->compilation, " ");
+	ft_free(vars->compilation);
+	vars->compilation = ft_strjoin(temp, link);
+	ft_free(temp);
 	return (1);
 }
 
