@@ -11,7 +11,6 @@
  *------------------------**/
 
 # define DEFAULT_FLAGS "cc -Wall -Wextra -Werror -g"
-# define LIBFT_PATH "libft/libft.a"
 # define OBJS "OBJS = $(SRC:.c=.o)"
 # define MAX_FILE_LEN 72
 

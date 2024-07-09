@@ -6,7 +6,7 @@
 /*   By: ciusca <ciusca@student.42firenze.it>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 01:26:31 by ciusca            #+#    #+#             */
-/*   Updated: 2024/07/08 02:07:18 by ciusca           ###   ########.fr       */
+/*   Updated: 2024/07/09 01:58:58 by ciusca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	write_makefile(t_make *make)
 	ret = write(make->fd, "\n", 1);
 	ret = write(make->fd, "\n", 1);
 	//? write compilation flags
-	write (make->fd, "COMPILATION = ", 14);
+	write (make->fd, "COMPILE = ", 10);
 	ret = write(make->fd, vars->compilation, ft_strlen(vars->compilation));
 	ret = write(make->fd, "\n", 1);
 	ret = write(make->fd, "\n", 1);
@@ -63,9 +63,12 @@ int	write_makefile(t_make *make)
 	ret = write(make->fd, vars->fclean, ft_strlen(vars->fclean));
 	ret = write(make->fd, "\n", 1);
 	ret = write(make->fd, "\n", 1);
+	//? write 're' rule
+	write (make->fd, "re: fclean all", 14);
+	ret = write(make->fd, "\n", 1);
+	ret = write(make->fd, "\n", 1);
 	//? write '.PHONY'
 	ret = write(make->fd, ".PHONY: all clean fclean\n", 24);
-	ret = write(make->fd, "\n", 1);
 	if (ret ==  -1)
 		return (error("Fatal Error: Something went wrong with write()"));
 	return (1);

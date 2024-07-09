@@ -6,7 +6,7 @@
 #    By: ciusca <ciusca@student.42firenze.it>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/06 00:37:58 by ciusca            #+#    #+#              #
-#    Updated: 2024/07/08 02:18:31 by ciusca           ###   ########.fr        #
+#    Updated: 2024/07/09 01:57:22 by ciusca           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,7 +65,6 @@ fclean: clean
 		@make -C $(LIBFT_PATH) fclean
 
 re: fclean all
-
 
 .PHONY: all clean fclean
 

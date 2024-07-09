@@ -6,7 +6,7 @@
 /*   By: ciusca <ciusca@student.42firenze.it>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 16:08:48 by ciusca            #+#    #+#             */
-/*   Updated: 2024/07/08 01:37:07 by ciusca           ###   ########.fr       */
+/*   Updated: 2024/07/09 02:02:33 by ciusca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,13 @@ char	*get_src(void)
 	if (!cmd)
 		return (error(GENERIC_ERROR), NULL);
 	while (fgets(buf, sizeof(buf), cmd) != 0) {
-		temp = ft_strdup(srcs);
-		ft_free(srcs);
-		srcs = ft_strjoin(temp, buf + 2);
-		free(temp);		
+		if (ft_strnstr(buf, ".c", ft_strlen(buf)))
+		{
+			temp = ft_strdup(srcs);
+			ft_free(srcs);
+			srcs = ft_strjoin(temp, buf + 2);
+			free(temp);		
+		}
 	}
 	pclose(cmd);
 	return (format_src(srcs));
