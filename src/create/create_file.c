@@ -6,7 +6,7 @@
 /*   By: ciusca <ciusca@student.42firenze.it>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 01:26:31 by ciusca            #+#    #+#             */
-/*   Updated: 2024/07/09 12:56:58 by ciusca           ###   ########.fr       */
+/*   Updated: 2024/07/10 10:59:08 by ciusca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	write_makefile(t_make *make)
 	ret = write(make->fd, "\n", 1);*/
 	//? write sources files
 	ret = write (make->fd, "SRC =", 5);
-	printf("vars->src = %s\n", vars->src);
+	//printf("vars->src = %s\n", vars->src);
 	ret = write(make->fd, vars->src, ft_strlen(vars->src));
 	ret = write(make->fd, "\n", 1);
 	ret = write(make->fd, "\n", 1);

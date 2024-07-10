@@ -6,7 +6,7 @@
 /*   By: ciusca <ciusca@student.42firenze.it>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 00:28:40 by ciusca            #+#    #+#             */
-/*   Updated: 2024/07/09 02:12:17 by ciusca           ###   ########.fr       */
+/*   Updated: 2024/07/10 10:59:14 by ciusca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	setup_clean(t_vars *vars)
 	}
 	temp = ft_strdup(vars->clean);
 	vars->clean = ft_strjoin(temp, "rm -rf $(OBJS)");
-	printf("clean = %s\n", vars->clean);
+	//printf("clean = %s\n", vars->clean);
 	ft_free(temp);
 	return (1);
 }
