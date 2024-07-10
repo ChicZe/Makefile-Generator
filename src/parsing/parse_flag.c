@@ -6,7 +6,7 @@
 /*   By: ciusca <ciusca@student.42firenze.it>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 16:19:48 by ciusca            #+#    #+#             */
-/*   Updated: 2024/07/07 19:41:39 by ciusca           ###   ########.fr       */
+/*   Updated: 2024/07/09 20:17:13 by ciusca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,15 @@ static int	check_flags(char *flag)
 	int		type;
 	char	**flag_value;
 	
+	if (!ft_strchr(flag , '=') && !ft_strnstr(flag, "update", ft_strlen(flag)))
+		return (error(FLAG_ERROR));
+	if (!ft_strchr(flag, '='))
+	{
+		flag_value = ft_calloc(sizeof(char *), 2);
+		if (!flag_value)
+			return (error(MALLOC_FAIL));
+		flag_value[0] = ft_strdup(flag);
+	}
 	flag_value = ft_split(flag, '=');
 	if (!flag_value)
 		return (error(MALLOC_FAIL));

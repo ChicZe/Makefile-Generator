@@ -6,7 +6,7 @@
 /*   By: ciusca <ciusca@student.42firenze.it>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 01:26:31 by ciusca            #+#    #+#             */
-/*   Updated: 2024/07/09 12:56:58 by ciusca           ###   ########.fr       */
+/*   Updated: 2024/07/10 00:53:08 by ciusca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,21 @@ int	write_makefile(t_make *make)
 	ret = write(make->fd, "\n", 1);
 	ret = write(make->fd, "\n", 1);
 	//? write libft if present
-	ret = write (make->fd, "LIBFT_PATH = ", 13);
-	ret = write(make->fd, vars->libft, ft_strlen(vars->libft));
-	ret = write(make->fd, "\n", 1);
-	ret = write (make->fd, "LIBFT = $(addprefix $(LIBFT_PATH), libft.a)", 43);
-	ret = write(make->fd, "\n", 1);
-	ret = write(make->fd, "\n", 1);
-	/*ret = write(make->fd, vars->include_var, ft_strlen(vars->include_var))
-	ret = write(make->fd, "\n", 1);
-	ret = write(make->fd, "\n", 1);*/
+	if (vars->libft)
+	{
+		ret = write (make->fd, "LIBFT_PATH = ", 13);
+		ret = write(make->fd, vars->libft, ft_strlen(vars->libft));
+		ret = write(make->fd, "\n", 1);
+		ret = write (make->fd, "LIBFT = $(addprefix $(LIBFT_PATH), libft.a)", 43);
+		ret = write(make->fd, "\n", 1);
+		ret = write(make->fd, "\n", 1);
+	}
+	/*if (vars->include_var)
+	{
+		write(make->fd, vars->include_var, ft_strlen(vars->include_var));
+		write(make->fd, "\n", 1);
+		write(make->fd, "\n", 1);	
+	}*/
 	//? write sources files
 	ret = write (make->fd, "SRC =", 5);
 	printf("vars->src = %s\n", vars->src);
@@ -68,7 +74,7 @@ int	write_makefile(t_make *make)
 	ret = write(make->fd, "\n", 1);
 	ret = write(make->fd, "\n", 1);
 	//? write '.PHONY'
-	ret = write(make->fd, ".PHONY: all clean fclean\n", 24);
+	ret = write(make->fd, ".PHONY: all clean fclean\n", 25);
 	if (ret ==  -1)
 		return (error("Fatal Error: Something went wrong with write()"));
 	return (1);

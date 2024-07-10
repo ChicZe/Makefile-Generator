@@ -6,7 +6,7 @@
 /*   By: ciusca <ciusca@student.42firenze.it>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 00:21:21 by ciusca            #+#    #+#             */
-/*   Updated: 2024/07/08 02:08:16 by ciusca           ###   ########.fr       */
+/*   Updated: 2024/07/10 00:44:12 by ciusca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,29 +22,22 @@ typedef	struct	s_all_flags
 	int		type;
 }				t_all_flags;
 
-typedef	struct s_include
-{
-	char				*var_name;
-	char				*path;
-	char				*include_file;
-	struct s_include	*next;
-}				t_include;
-
-
 typedef struct s_vars
 {
+	int			n_flags;
 	char		*name;
 	char		*src;
 	char		*compilation;
 	char		*link;
 	char		*libft;
 	char		*include;
-	char		*include_var;
+	char		*declaration; // declare the variables for the additional includes
 	char		*all;
 	char		*clean;
 	char		*fclean;
 }				t_vars;
 
+/* maybe i dont need this */
 typedef struct s_flags
 {
 	int	name;
