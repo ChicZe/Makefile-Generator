@@ -43,7 +43,7 @@ Make sure to include a valid folder or type help for more informations\n\n"
 /*------------------------------------------*/
 # define GENERIC_ERROR "\nFatal Error!\nIf the problem persists please open an issue on the github page.\n\n"
 /*------------------------------------------*/
-
+# define FLAG_ERROR "Incorrect"
 /*------------------------------------------*/
 
 /*------------------------------------------*/

@@ -6,7 +6,7 @@
 /*   By: ciusca <ciusca@student.42firenze.it>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 15:34:29 by nromito           #+#    #+#             */
-/*   Updated: 2024/07/06 22:32:29 by ciusca           ###   ########.fr       */
+/*   Updated: 2024/07/09 20:16:34 by ciusca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void	ft_putnbr_fd(int n, int fd);
 void	ft_free(void *heap);
 void	print_matrix(char **mat);
 void	free_matrix(char **mat);
+char	*upper_str(char *str);
 
 typedef struct s_list
 {

@@ -6,7 +6,7 @@
 /*   By: ciusca <ciusca@student.42firenze.it>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 22:46:08 by ciusca            #+#    #+#             */
-/*   Updated: 2024/07/10 10:58:39 by ciusca           ###   ########.fr       */
+/*   Updated: 2024/07/10 11:03:02 by ciusca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,34 @@ int	update(t_make *make)
 
 int	include_flag(t_vars *vars, char *path)
 {
-	int		fd;
+	char	*temp;
+	char	*name;
+	char	*trimmed;
+	char	*var;
 
-	if (!path)
+	if (!path || !ft_strchr(path, '/'))
 		return (error("Insert a valid path"));
-	printf("this feature not working at the moment\n");	
-	fd = open(path, __O_DIRECTORY);
-	if (fd == -1)
-		return (error(INCLUDE_PATH_ERROR));
-	close(fd);
+	
+	name = ft_strrchr(path, '/') + 1;	
+	trimmed = ft_strtrim(ft_strrchr(path, '/') + 1, ".a");
+	temp = ft_strdup(vars->include);
 	ft_free(vars->include);
-	//vars->include = tokenize_include(path);
-	vars->include = ft_strdup(path);
-	return (1);
+	var = var_declaration(trimmed);
+	vars->include = ft_strjoin(temp, var);
+	ft_free(var);
+	ft_free(temp);
+	temp = ft_strjoin(vars->include, " ");
+	ft_free(vars->include);
+	vars->include = ft_strdup(temp);
+	ft_free(temp);
+	//temp = ft_strtrim(path, name);
+	//ft_free(name);
+	name = ft_strjoin(trimmed, "_PATH");
+	ft_free(trimmed);
+	temp = ft_strdup(vars->include);
+	vars->include = ft_strjoin(temp, var_declaration(name));
+	ft_free(name);
+	return (0);
 }
 
 int	link_flag(t_vars *vars, char *link)

@@ -6,7 +6,7 @@
 /*   By: ciusca <ciusca@student.42firenze.it>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 18:26:24 by ciusca            #+#    #+#             */
-/*   Updated: 2024/07/08 02:08:00 by ciusca           ###   ########.fr       */
+/*   Updated: 2024/07/10 01:23:16 by ciusca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,23 @@
 	ft_free(var);
 	return (include);
 }*/
+
+
+char	*var_declaration(char *name)
+{
+	char	*temp;
+	char	*new_var;
+	char	*upper_name;
+	
+	if (!name)
+		return (0);
+	upper_name = upper_str(name);
+	temp = ft_strjoin("(", upper_name);
+	new_var = ft_strjoin(temp, ")");
+	ft_free(temp);
+	ft_free(upper_name);
+	return (new_var);
+}
 
 char	*get_cmd_output(char *cmd)
 {

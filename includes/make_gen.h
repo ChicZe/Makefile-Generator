@@ -23,7 +23,7 @@ char	*get_src(void);
  *========================**/
 char	*format_src(char *src);
 char	*get_cmd_output(char *cmd);
-char	*tokenize_include(char	*path);
+char	*var_declaration(char *name);
 
 /**----------------------
  *?    COMPOSING MAKEFILE
